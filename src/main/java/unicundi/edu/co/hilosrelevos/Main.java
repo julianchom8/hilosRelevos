@@ -1,8 +1,8 @@
 
 package unicundi.edu.co.hilosrelevos;
 
-import com.mycompany.hilosrelevos.Corredor;
-import com.mycompany.hilosrelevos.Equipo;
+import unicundi.edu.co.hilosrelevos.Corredor;
+import unicundi.edu.co.hilosrelevos.Equipo;
 
 /**
  *
@@ -12,19 +12,19 @@ import com.mycompany.hilosrelevos.Equipo;
 public class Main {
     
     public static void main(String[] args) {
-    Equipo equipo1 = new Equipo("1", 0, 100);
+    Equipo equipo1 = new Equipo("uno ", 0, 100);
     
      Corredor atleta1 = new Corredor(equipo1, 0, 33);
      Corredor atleta4 = new Corredor(equipo1, 33, 66);
      Corredor atleta7 = new Corredor(equipo1, 66, 100);
      
-    Equipo equipo2 = new Equipo("2", 0, 100);
+    Equipo equipo2 = new Equipo("dos ", 0, 100);
     
     Corredor atleta2 = new Corredor(equipo2, 0, 33);
     Corredor atleta5 = new Corredor(equipo2, 33, 66);
     Corredor atleta8 = new Corredor(equipo2, 66, 100);
     
-    Equipo equipo3 = new Equipo("3", 0, 100);
+    Equipo equipo3 = new Equipo("tres", 0, 100);
 
     Corredor atleta3 = new Corredor(equipo3, 0, 33);
     Corredor atleta6 = new Corredor(equipo3, 33, 66);

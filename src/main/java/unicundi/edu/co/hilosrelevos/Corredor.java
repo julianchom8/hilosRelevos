@@ -1,4 +1,4 @@
-package com.mycompany.hilosrelevos;
+package unicundi.edu.co.hilosrelevos;
 
 import java.awt.BorderLayout;
 
@@ -7,7 +7,7 @@ import java.awt.BorderLayout;
 public class Corredor extends Thread {
 
     Equipo equipo;
-    private int paso;
+    private int posicion;
     private int fin;
     private String equipo1;
     private String equipo2;
@@ -18,12 +18,12 @@ public class Corredor extends Thread {
      * Constuctor de la clase
      *
      * @param equipo
-     * @param paso
+     * @param posicion
      * @param fin
      */
-    public Corredor(Equipo equipo, int paso, int fin) {
+    public Corredor(Equipo equipo, int posicion, int fin) {
         this.equipo = equipo;
-        this.paso = paso;
+        this.posicion = posicion;
         this.fin = fin;
     }
 
@@ -33,16 +33,16 @@ public class Corredor extends Thread {
     @Override
     public void run() {
 
-        if (paso == 0) {
+        if (posicion == 0) {
             while (true) {
-                movimientoActual = posicionPasos(1);
+                movimientoActual = posicionCorredor(1);
 
                 if (movimientoActual >= 33) {
 
                     equipo.setPosicionA(33);
                     synchronized (equipo) {
                         equipo.notifyAll();
-                        paso = 33;
+                        posicion = 33;
                     }
                     break;
                 }
@@ -57,9 +57,9 @@ public class Corredor extends Thread {
             }
 
         }
-        if (paso == 33) {
+        if (posicion == 33) {
             while (true) {
-                movimientoActual = posicionPasos(2);
+                movimientoActual = posicionCorredor(2);
                 if (movimientoActual >= 66) {
                     equipo.setPosicionB(66);
                     synchronized (equipo) {
@@ -78,9 +78,9 @@ public class Corredor extends Thread {
             }
 
         }
-        if (paso == 66) {
+        if (posicion == 66) {
             while (true) {
-                movimientoActual = posicionPasos(3);
+                movimientoActual = posicionCorredor(3);
                 if (movimientoActual >= 100) {
                     equipo.setPosicionC(100);
                     System.out.println("Equipo ganador " + equipo.getNombre());
@@ -103,18 +103,18 @@ public class Corredor extends Thread {
     /**
      * Metodo que suma pasos al camino recorrido del corredor
      *
-     * @param numPosi
+     * @param numeroProsicion
      * @return
      */
-    public int posicionPasos(int numPosi) {
+    public int posicionCorredor(int numeroProsicion) {
         int valorAvance; 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(800);
         } catch (InterruptedException ex) {
             System.out.println("Error en el hilo");
         }
-         valorAvance = Random.random();
-        if (numPosi == 1) {
+         valorAvance = Random.Random();
+        if (numeroProsicion == 1) {
             
             equipo.setPosicionA(equipo.getPosicionA() + valorAvance);
             
@@ -136,7 +136,7 @@ public class Corredor extends Thread {
             }
             return equipo.getPosicionA();
         }
-        if (numPosi == 2) {
+        if (numeroProsicion == 2) {
             
             equipo.setPosicionB(equipo.getPosicionB() + valorAvance);
             
@@ -158,7 +158,7 @@ public class Corredor extends Thread {
             }
             return equipo.getPosicionB();
         }
-        if (numPosi == 3) {
+        if (numeroProsicion == 3) {
             
             equipo.setPosicionC(equipo.getPosicionC() + valorAvance);
             

@@ -1,4 +1,4 @@
-package com.mycompany.hilosrelevos;
+package unicundi.edu.co.hilosrelevos;
 
 /**
  *
@@ -44,7 +44,10 @@ public class Equipo extends Thread {
      * Son variables de que dan color a la impresion en consola
      */
     public static final String ANSI_CYAN = "\u001B[36m";
-
+    /**
+     * Son variables de que dan color a la impresion en consola
+     */
+    public static final String ANSI_BLACK= "\u001B[32m";
     /**
      * Constructor de la clase
      *
@@ -84,7 +87,7 @@ public class Equipo extends Thread {
                 dezplaza += ANSI_CYAN + "#";
                 
             } else {
-                dezplaza += ".";
+                dezplaza += ANSI_BLACK+".";
             }
         }
 
